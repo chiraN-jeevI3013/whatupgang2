@@ -47,3 +47,15 @@ venv/
 # macOS
 .DS_Store
 ```
+
+## Applying Migrations
+```
+python manage.py makemigrations users teams
+python manage.py migrate
+```
+
+
+## Running the server
+```
+python manage.py runserver
+```
