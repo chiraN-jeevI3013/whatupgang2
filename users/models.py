@@ -1,3 +1,5 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-# Create your models here.
+class CustomUser(AbstractUser):
+    is_admin_user = models.BooleanField(default=True)  # True for now (admin-only MVP)
