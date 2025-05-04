@@ -129,3 +129,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email sending for now just logs to console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'

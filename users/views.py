@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from teams.models import Team
 
@@ -29,6 +30,7 @@ def login_view(request):
         form = CustomAuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
 
+@login_required(login_url='login')
 def home_view(request):
     teams = Team.objects.filter(created_by=request.user)
     return render(request, 'teams/home.html', {'teams': teams})
