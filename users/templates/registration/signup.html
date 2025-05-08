@@ -7,6 +7,15 @@
 </head>
 <body class="container mt-5">
   <h2>Sign Up</h2>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -15,3 +24,20 @@
   <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
 </body>
 </html>
+
+<style>
+.alert {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid;
+  border-radius: 4px;
+}
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+</style>
