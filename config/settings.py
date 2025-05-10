@@ -23,8 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a*a98j3c^z61#+(xhx%-3ohrp0r)@=px=fdf%v2c@@smih&m10'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = False
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.x.x']
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -128,3 +129,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email sending for now just logs to console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+
+AUTHENTICATION_BACKENDS = [
+    'users.backends.EmailBackend',  # Add this
+    'django.contrib.auth.backends.ModelBackend',  # Keep this for admin login etc.
+]
